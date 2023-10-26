@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+    /* border: 3px black solid; */
+}
+#canvas-container {
+    padding: 2%;
+    /* border: 3px red solid; */
+    margin: 1.5%;
+}
+
+#color-container {
+    padding: 2%;
+    /* border: 3px green solid; */
+}
+#color-container button{
+    display: block;
+    padding: 45px;
+    margin-top: 10px;
+    border-radius: 50%;
+    border: none;
+    /* border: 3px yellow solid; */
+}
+#color-container button:hover{
+    opacity: 70%;
+    cursor: pointer;
+}

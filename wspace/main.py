@@ -35,12 +35,11 @@ def upload():
 @app.route('/prepare', methods=['GET'])
 def prepare_dataset():
     images = []
-    d = ['triangulo', 'cuadrado', 'circulo', 'rombo']
+    s = ['triangulo', 'cuadrado', 'circulo', 'rombo']
     digits = []
-    for digit in d:
-        filelist = glob.glob('{}/*.png'.format(digit))
+    for digit in s:
+        filelist = glob.glob('shapes/{}/*.png'.format(digit))
         images_read = io.concatenate_images(io.imread_collection(filelist))
-        images_read = images_read[:, :, :, 3]
         digits_read = np.array([digit] * images_read.shape[0])
         images.append(images_read)
         digits.append(digits_read)
@@ -61,11 +60,11 @@ def download_y():
     return send_file('y.npy')
 
 if __name__ == "__main__":
-    digits = ['triangulo', 'cuadrado', 'circulo', 'rombo']
-    for d in digits:
+    shapes = ['triangulo', 'cuadrado', 'circulo', 'rombo']
+    for s in shapes:
         shapes_dir = 'shapes/'
         if not os.path.exists(shapes_dir):
             os.mkdir(shapes_dir)
-        if not os.path.exists(os.path.join(shapes_dir, str(d))):
-            os.mkdir(os.path.join(shapes_dir, str(d)))
+        if not os.path.exists(os.path.join(shapes_dir, str(s))):
+            os.mkdir(os.path.join(shapes_dir, str(s)))
     app.run()
