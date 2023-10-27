@@ -21,7 +21,7 @@ def upload():
         aleatorio = request.form.get('numero')
         print(aleatorio)
         print(aleatorio.split(' ')[0])
-        with tempfile.NamedTemporaryFile(delete = False, mode = "w+b", suffix='.png', dir=os.path.join(shapes_dir, str(aleatorio.split(' ')[0]))) as fh:
+        with tempfile.NamedTemporaryFile(delete = False, mode = "w+b", suffix='.png', dir=os.path.join(shapes_dir, str(aleatorio))) as fh:
             fh.write(base64.b64decode(img_data))
         #file = request.files['myImage']
         print("Image uploaded")
@@ -35,9 +35,12 @@ def upload():
 @app.route('/prepare', methods=['GET'])
 def prepare_dataset():
     images = []
-    s = ['triangulo', 'cuadrado', 'circulo', 'rombo']
+    s_c = ['triangulo verde', 'triangulo azul', 'triangulo amarillo','triangulo rojo',
+                'cuadrado verde', 'cuadrado azul', 'cuadrado amarillo', 'cuadrado rojo',
+                'circulo verde', 'circulo azul', 'circulo amarillo', 'circulo rojo',
+                'rombo verde', 'rombo azul', 'rombo amarillo', 'rombo rojo']
     digits = []
-    for digit in s:
+    for digit in s_c:
         filelist = glob.glob('shapes/{}/*.png'.format(digit))
         images_read = io.concatenate_images(io.imread_collection(filelist))
         digits_read = np.array([digit] * images_read.shape[0])
@@ -60,8 +63,11 @@ def download_y():
     return send_file('y.npy')
 
 if __name__ == "__main__":
-    shapes = ['triangulo', 'cuadrado', 'circulo', 'rombo']
-    for s in shapes:
+    shapes_color = ['triangulo verde', 'triangulo azul', 'triangulo amarillo','triangulo rojo',
+                'cuadrado verde', 'cuadrado azul', 'cuadrado amarillo', 'cuadrado rojo',
+                'circulo verde', 'circulo azul', 'circulo amarillo', 'circulo rojo',
+                'rombo verde', 'rombo azul', 'rombo amarillo', 'rombo rojo']
+    for s in shapes_color:
         shapes_dir = 'shapes/'
         if not os.path.exists(shapes_dir):
             os.mkdir(shapes_dir)

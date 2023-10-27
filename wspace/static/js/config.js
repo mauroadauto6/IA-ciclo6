@@ -10,11 +10,14 @@ var mousePressed = false;
         ctx = document.getElementById('myCanvas').getContext("2d");
         
         numero = getRndInteger(0, 10);
-        letra = ['triangulo', 'cuadrado', 'circulo', 'rombo'];
-        color = ['verde', 'azul', 'amarillo', 'rojo'];
-        random = Math.floor(Math.random() * letra.length);
-        randomC = Math.floor(Math.random() * color.length);
-        aleatorio = letra[random] + ' ' + color[randomC];
+
+        shapes_color = ['triangulo verde', 'triangulo azul', 'triangulo amarillo','triangulo rojo',
+        'cuadrado verde', 'cuadrado azul', 'cuadrado amarillo', 'cuadrado rojo',
+        'circulo verde', 'circulo azul', 'circulo amarillo', 'circulo rojo',
+        'rombo verde', 'rombo azul', 'rombo amarillo', 'rombo rojo'];
+        random = Math.floor(Math.random() * shapes_color.length);
+
+        aleatorio = shapes_color[random];
 
         document.getElementById('mensaje').innerHTML  = 'Dibuja un ' + aleatorio;
         document.getElementById('numero').value = aleatorio;
