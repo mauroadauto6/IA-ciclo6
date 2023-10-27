@@ -8,6 +8,7 @@ shapes_color = ['triangulo verde', 'triangulo azul', 'triangulo amarillo','trian
                 'rombo verde', 'rombo azul', 'rombo amarillo', 'rombo rojo']
 
 suma = 0
+total_size = 0
 
 for s in shapes_color:
     shapes_dir = "shapes/"
@@ -16,10 +17,12 @@ for s in shapes_color:
         if f.endswith('.png'):
             imagen = io.imread(os.path.join(complete_path_to_shape, f))
             img = Image.open(os.path.join(complete_path_to_shape, f))
-            print(os.path.join(complete_path_to_shape, f), imagen.shape, img.mode)
+            size = os.path.getsize(os.path.join(complete_path_to_shape, f))
+            print(os.path.join(complete_path_to_shape, f), imagen.shape, img.mode, size / 1000, "KB")
         suma += 1
+        total_size += size / 1000000
 
-print(suma)
+print("{} - {:.2f}MB".format(suma, total_size))
 
 
 
