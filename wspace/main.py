@@ -1,7 +1,7 @@
 import tempfile
 import os
 from flask import Flask, request, redirect, send_file, render_template
-from skimage import io
+from skimage import io, color
 import base64
 import glob
 import numpy as np
@@ -23,6 +23,7 @@ def upload():
         print(aleatorio.split(' ')[0])
         with tempfile.NamedTemporaryFile(delete = False, mode = "w+b", suffix='.png', dir=os.path.join(shapes_dir, str(aleatorio))) as fh:
             fh.write(base64.b64decode(img_data))
+
         #file = request.files['myImage']
         print("Image uploaded")
     except Exception as err:
@@ -43,6 +44,8 @@ def prepare_dataset():
     for digit in s_c:
         filelist = glob.glob('shapes/{}/*.png'.format(digit))
         images_read = io.concatenate_images(io.imread_collection(filelist))
+        images_read = images_read[:, :, :, :3]
+        print(images_read.shape)
         digits_read = np.array([digit] * images_read.shape[0])
         images.append(images_read)
         digits.append(digits_read)

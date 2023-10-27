@@ -16,7 +16,7 @@ for s in shapes_color:
         if f.endswith('.png'):
             imagen = io.imread(os.path.join(complete_path_to_shape, f))
             img = Image.open(os.path.join(complete_path_to_shape, f))
-            #print(os.path.join(complete_path_to_shape, f), imagen.shape, img.mode)
+            print(os.path.join(complete_path_to_shape, f), imagen.shape, img.mode)
         suma += 1
 
 print(suma)
