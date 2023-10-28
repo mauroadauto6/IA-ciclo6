@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -26,10 +26,10 @@
     </div>
     <div class ="button-container" align="center">
         <button onclick="javascript:clearArea();return false;">Borrar</button>
-        <form method="post" action="upload" onsubmit="javascript:prepareImg();"  enctype="multipart/form-data">
+        <form method="post" action="predict" onsubmit="javascript:prepareImg();"  enctype="multipart/form-data">
             <input id="numero" name="numero" type="hidden" value="">
             <input id="myImage" name="myImage" type="hidden" value="">
-            <input id="bt_upload" type="submit" value="Predecir">
+            <input id="bt_upload" style="font-size: 1.5rem" type="submit" value="Predecir">
         </form>
     </div>
 </body>

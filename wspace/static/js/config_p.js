@@ -11,6 +11,14 @@ var mousePressed = false;
         
         numero = getRndInteger(0, 10);
 
+        shapes_color = ['triangulo verde', 'triangulo azul', 'triangulo amarillo','triangulo rojo',
+        'cuadrado verde', 'cuadrado azul', 'cuadrado amarillo', 'cuadrado rojo',
+        'circulo verde', 'circulo azul', 'circulo amarillo', 'circulo rojo',
+        'rombo verde', 'rombo azul', 'rombo amarillo', 'rombo rojo'];
+        random = Math.floor(Math.random() * shapes_color.length);
+
+        aleatorio = shapes_color[random];
+
         document.getElementById('mensaje').innerHTML  = 'Dibuja una figura ';
         document.getElementById('numero').value = aleatorio;
 
