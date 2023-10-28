@@ -9,16 +9,13 @@
 </head>
 <body>
 
-<div class="contenedor">
-    <div>
-        <h1>Fruta dibujada</h1>
+<div class="container" align="center">
+    <div id="img-container">
         <img src="data:image/png;base64,{{ img_data }}" alt="shape">
     </div>
-    <ul>
-        {% for n in nums %}
-            <li>{{ n }}% {{ shapes[loop.index0] }}</li>
-        {% endfor %}
-    </ul>
+    <div id="text-container">
+        <h1> La figura que dibujaste es un {{max_shape}} !</h1>
+    </div>
     <a href="/">Ir a la página principal</a>
 </div>
 

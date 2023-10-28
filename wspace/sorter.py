@@ -32,26 +32,31 @@ def predict():
         salida = model.predict(im)[0]
         os.remove(tmp_file_path)
         nums = salida*100
-        numeros_formateados = [f'{numero:.2f}' for numero in nums]
-        cadena_formateada = ', '.join(numeros_formateados)
-        return redirect(url_for('show_predictions', nums=cadena_formateada, img_data=img_data))
+        p_nums = [f'{n:.2f}' for n in nums]
+        num_label = ', '.join(p_nums)
+        return redirect(url_for('sort_shapes', nums=num_label, img_data=img_data))
     except:
         print("Error occurred")
 
     return redirect("/", code=302)
 
 @app.route('/predicciones')
-def show_predictions():
+def sort_shapes():
     nums = request.args.get('nums')
     img_data = request.args.get('img_data')
-    componentes = nums.split(', ')
-    nums = [float(componente) for componente in componentes]
+    proporcion = nums.split(', ')
+    nums = [float(p) for p in proporcion]
+    print(nums)
     shapes = ['triangulo verde', 'triangulo azul', 'triangulo amarillo','triangulo rojo',
                 'cuadrado verde', 'cuadrado azul', 'cuadrado amarillo', 'cuadrado rojo',
                 'circulo verde', 'circulo azul', 'circulo amarillo', 'circulo rojo',
                 'rombo verde', 'rombo azul', 'rombo amarillo', 'rombo rojo']
+    
+    max_num = nums.index(max(nums))
+    max_shape = shapes[max_num] # obtenemos el label del indice del número más alto
+    
     if img_data is not None:
-        return render_template('sorter.html', nums=nums, shapes=shapes, img_data=img_data)
+        return render_template('sorter.html', nums=nums, max_shape=max_shape, img_data=img_data)
     else:
         return redirect("/", code=302)
 
