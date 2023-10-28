@@ -7,7 +7,7 @@ from skimage.transform import resize
 import numpy as np
 import tensorflow as tf
 
-model = tf.keras.models.load_model('modelo_entrenado.h5')
+model = tf.keras.models.load_model('figurIA.h5')
 app = Flask(__name__, template_folder="templates/")
 
 @app.route("/")
@@ -22,7 +22,7 @@ def predict():
             fh.write(base64.b64decode(img_data))
             tmp_file_path = fh.name
         imagen = io.imread(tmp_file_path)
-        imagen = imagen[:, :, 3]
+        imagen = imagen[:, :, :, :3]
         size = (28, 28)
         image = imagen / 255.0
         im = resize(image, size)
@@ -45,7 +45,10 @@ def show_predictions():
     img_data = request.args.get('img_data')
     componentes = nums.split(', ')
     nums = [float(componente) for componente in componentes]
-    shapes = ['triangulo', 'cuadrado', 'circulo', 'rombo']
+    shapes = ['triangulo verde', 'triangulo azul', 'triangulo amarillo','triangulo rojo',
+                'cuadrado verde', 'cuadrado azul', 'cuadrado amarillo', 'cuadrado rojo',
+                'circulo verde', 'circulo azul', 'circulo amarillo', 'circulo rojo',
+                'rombo verde', 'rombo azul', 'rombo amarillo', 'rombo rojo']
     if img_data is not None:
         return render_template('prediction.html', nums=nums, shapes=shapes, img_data=img_data)
     else:
