@@ -1,3 +1,15 @@
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    background-image: url('../img/fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    overflow: hidden; 
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -9,6 +21,9 @@
     padding: 2%;
     /* border: 3px red solid; */
     margin: 1.5%;
+}
+#myCanvas {
+    background-color: white;
 }
 
 #color-container {
@@ -24,6 +39,6 @@
     /* border: 3px yellow solid; */
 }
 #color-container button:hover{
-    opacity: 70%;
+    transform: scale(1.1);
     cursor: pointer;
 }

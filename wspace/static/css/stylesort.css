@@ -1,0 +1,51 @@
+:root{
+    --rosita: #FDA9FE;
+    --amarillito: #F8FA9C;
+    --celestito: #93EBF2;
+}
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    background-image: url('../img/fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#img-container img{
+    background-color: white; 
+    padding: 20px; 
+    border-radius: 25px;
+}
+.container h2{
+    text-align: center;
+    padding: 14px;
+    border-radius: 20px;
+    background-color: var(--celestito);
+}
+#img-container audio{
+    padding: 15px;
+}
+audio::backdrop{
+    color: var(--amarillito);
+}
+
+#img-sh-ex-container img{
+    width: 400px;
+    height: 400px;
+}
+
+#home-container i{
+    color: var(--celestito);
+}

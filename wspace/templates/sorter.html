@@ -5,18 +5,42 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mostrar Figurin</title>
-    <link rel="stylesheet" href="../static/css/predict.css">
+    <link rel="stylesheet" href="../static/css/stylesort.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="container" align="center">
     <div id="img-container">
         <img src="data:image/png;base64,{{ img_data }}" alt="shape">
+        <h2>Esta figura tiene {{shape_sides}} lados</h2>
+        <div id="audio-container">
+            <audio id="audio" controls>
+                <source src="../static/audio/{{max_shape_nospace}}.mp3" type="audio/mpeg">
+            </audio>
+        </div>
     </div>
     <div id="text-container">
-        <h1> La figura que dibujaste es un {{max_shape}} !</h1>
+        <div id="title-container"><h1>¡La figura que dibujaste es un {{max_shape}}!</h1></div>
+        <div id="img-sh-ex-container">
+            <h2>Un ejemplo de esta figura es....</h2>
+            {% if shape == 'triangulo' %}
+                <img src="../static/shapes_img/triangulo/pizza.png" alt="pizza" title="¡Una pizza!">
+            {% elif shape == 'rombo' %}
+                <img src="../static/shapes_img/rombo/cometa.png" alt="cometa" title="¡Una cometa muy genial!">
+            {% elif shape == 'cuadrado' %}
+                <img src="../static/shapes_img/cuadrado/mc-grass.jpeg" alt="tierra minecraft" title="¡Tierra de Minecraft!">
+            {% elif shape == 'circulo' %}
+                <img src="../static/shapes_img/circulo/pizza-completa.png" alt="pizza entera" title="¡Una pizza enterita!">
+            {% endif %}
+        </div>
     </div>
-    <a href="/">Ir a la página principal</a>
+    <div id="home-container">
+        <a href="/"><i class="fa-solid fa-house fa-2xl"></i></a>
+    </div>
 </div>
 
 </body>

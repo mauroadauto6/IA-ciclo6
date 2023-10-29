@@ -6,6 +6,7 @@ import base64
 from skimage.transform import resize
 import numpy as np
 import tensorflow as tf
+from gtts import gTTS
 
 model = tf.keras.models.load_model('D:/documents/UPC/Ciclo VI/Inteligencia Artificial/PC2/wspace/figurIA.h5')
 app = Flask(__name__, template_folder="templates/")
@@ -54,12 +55,36 @@ def sort_shapes():
     
     max_num = nums.index(max(nums))
     max_shape = shapes[max_num] # obtenemos el label del indice del número más alto
+    print(max_shape, type(max_shape))
+    
+    shape_sides, sh_only = calculateSides(max_shape)
+    generateAudio(max_shape)
     
     if img_data is not None:
-        return render_template('sorter.html', nums=nums, max_shape=max_shape, img_data=img_data)
+        return render_template('sorter.html', nums=nums, max_shape=max_shape, max_shape_nospace=max_shape.replace(' ', '_'), shape_sides=shape_sides, shape=sh_only, img_data=img_data)
     else:
         return redirect("/", code=302)
 
+@app.route('/predicciones')
+def calculateSides(max_shape):
+    sides = {'triangulo': 3, 'cuadrado': 4, 'circulo': 0, 'rombo': 4}
+    
+    for sh, s in sides.items():
+        if (sh == max_shape.split()[0]):
+            shape_sides = s # almacenamos el numero de lados de la figura clasificada
+            sh_only = sh # almacenamos la figura clasificada
+            break
+    return shape_sides, sh_only
+
+@app.route('/predicciones')
+def generateAudio(max_shape):
+    tts = gTTS(text=max_shape, lang='es')
+    audio_folder = os.path.join('wspace', 'static', 'audio')
+    if not os.path.exists(audio_folder):
+        os.makedirs(audio_folder)
+    audio_file = os.path.join(audio_folder, max_shape.replace(' ', '_') + '.mp3')
+    if not os.path.exists(audio_file):
+        tts.save(audio_file)
 
 if __name__ == "__main__":
     app.run()
