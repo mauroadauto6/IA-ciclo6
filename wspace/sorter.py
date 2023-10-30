@@ -8,6 +8,8 @@ import numpy as np
 import tensorflow as tf
 from gtts import gTTS
 
+# carga del modelo entrenado con 0.89 de precisión
+# https://colab.research.google.com/drive/1pgyV8zmYZh1LzwoJMDwQN4zNQCNLw9-A?usp=sharing
 model = tf.keras.models.load_model('D:/documents/UPC/Ciclo VI/Inteligencia Artificial/PC2/wspace/figurIA.h5')
 app = Flask(__name__, template_folder="templates/")
 
@@ -15,11 +17,11 @@ app = Flask(__name__, template_folder="templates/")
 def main():
     return render_template('drawing.html')
 
-@app.route('/predict', methods=['POST'])
-def predict():
+@app.route('/clasificar', methods=['POST'])
+def clasif():
     try:
         img_data = request.form.get('myImage').replace("data:image/png;base64,","")
-        with tempfile.NamedTemporaryFile(delete=False, mode="w+b", suffix='.png', dir=str('prediccion')) as fh:
+        with tempfile.NamedTemporaryFile(delete=False, mode="w+b", suffix='.png', dir=str('clasificacion')) as fh:
             fh.write(base64.b64decode(img_data))
             tmp_file_path = fh.name
         imagen = io.imread(tmp_file_path)
@@ -41,7 +43,7 @@ def predict():
 
     return redirect("/", code=302)
 
-@app.route('/predicciones')
+@app.route('/clasificaciones')
 def sort_shapes():
     nums = request.args.get('nums')
     img_data = request.args.get('img_data')
@@ -65,7 +67,7 @@ def sort_shapes():
     else:
         return redirect("/", code=302)
 
-@app.route('/predicciones')
+@app.route('/clasificaciones')
 def calculateSides(max_shape):
     sides = {'triangulo': 3, 'cuadrado': 4, 'circulo': 0, 'rombo': 4}
     
@@ -76,7 +78,7 @@ def calculateSides(max_shape):
             break
     return shape_sides, sh_only
 
-@app.route('/predicciones')
+@app.route('/clasificaciones')
 def generateAudio(max_shape):
     tts = gTTS(text=max_shape, lang='es')
     audio_folder = os.path.join('wspace', 'static', 'audio')

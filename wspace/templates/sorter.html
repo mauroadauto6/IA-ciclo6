@@ -18,6 +18,7 @@
         <img src="data:image/png;base64,{{ img_data }}" alt="shape">
         <h2>Esta figura tiene {{shape_sides}} lados</h2>
         <div id="audio-container">
+            <h2>Escucha la pronunciación</h2>
             <audio id="audio" controls>
                 <source src="../static/audio/{{max_shape_nospace}}.mp3" type="audio/mpeg">
             </audio>
@@ -28,19 +29,23 @@
         <div id="img-sh-ex-container">
             <h2>Un ejemplo de esta figura es....</h2>
             {% if shape == 'triangulo' %}
-                <img src="../static/shapes_img/triangulo/pizza.png" alt="pizza" title="¡Una pizza!">
+                <img src="../static/shapes_img/triangulo/pizza.png" alt="pizza" title="¡Una pizza!" class="rebote">
+                <h3>!Una deliciosa pizza¡</h3>
             {% elif shape == 'rombo' %}
-                <img src="../static/shapes_img/rombo/cometa.png" alt="cometa" title="¡Una cometa muy genial!">
+                <img src="../static/shapes_img/rombo/cometa.png" alt="cometa" title="¡Una cometa muy genial!" class="rebote">
+                <h3>¡Una cometa muy genial!</h3>
             {% elif shape == 'cuadrado' %}
-                <img src="../static/shapes_img/cuadrado/mc-grass.jpeg" alt="tierra minecraft" title="¡Tierra de Minecraft!">
+                <img src="../static/shapes_img/cuadrado/mc-grass.jpeg" alt="tierra minecraft" title="¡Tierra de Minecraft!" class="rebote">
+                <h3>¡Un bloque de minecraft!</h3>
             {% elif shape == 'circulo' %}
-                <img src="../static/shapes_img/circulo/pizza-completa.png" alt="pizza entera" title="¡Una pizza enterita!">
+                <img src="../static/shapes_img/circulo/pizza-completa.png" alt="pizza entera" title="¡Una pizza enterita!" class="rebote">
+                <h3>¡Una pizza enterita!</h3>
             {% endif %}
         </div>
     </div>
-    <div id="home-container">
-        <a href="/"><i class="fa-solid fa-house fa-2xl"></i></a>
-    </div>
+</div>
+<div id="home-container" align="center">
+    <a href="/"><i class="fa-solid fa-house fa-2xl"></i></a>
 </div>
 
 </body>
