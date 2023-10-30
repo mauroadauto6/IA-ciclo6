@@ -14,3 +14,4 @@ Github para la entrega de la PC2 - ciclo VI
 * 'test.py' se utilizó para realizar pruebas de distintas funcionalidades
 * '.gitattributes' + "Git LFS" (Git Large File Storage)  se utilizaron para subir archivos pesados al repositorio
 * Ignorar PDFs
+* En la carga del modelo 'model = tf.keras.models.load_model('figurIA.h5')' quizás sea necesario poner la ruta completa hasta el archivo 'figurIA.h5'
