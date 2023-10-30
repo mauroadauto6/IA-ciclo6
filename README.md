@@ -5,3 +5,6 @@ Github para la entrega de la PC2 - ciclo VI
 * Jair Stephano Rodriguez Calla
 * David Joaquín Niño Suárez
 * Andy Johan Muñico Soto
+# APP
+Para iniciar la web GUI, correr 'sort.py'
+Se podrá desplegar cuando existan recursos económicos para costearlo 😢
