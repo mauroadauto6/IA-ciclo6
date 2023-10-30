@@ -8,3 +8,8 @@ Github para la entrega de la PC2 - ciclo VI
 # APP
 Para iniciar la web GUI, correr 'sort.py'
 Se podrá desplegar cuando existan recursos económicos para costearlo 😢
+
+# OJO: 
+* 'test.py' se utilizó para realizar pruebas de distintas funcionalidades
+* '.gitattributes' + "Git LFS" (Git Large File Storage) <archivo borrado> se utilizaron para subir archivos pesados al repositorio
+* Ignorar PDFs
