@@ -30,7 +30,7 @@ def clasif():
         image = imagen / 255.0
         im = resize(image, size)
         im = im.reshape(1, *im.shape)
-        im = im[:,:,:,:3]
+        im = im[:,:,:,:3] # cambiamos las dimensiones de la imagen para que nuestro modelo pueda reconocerla
         print(im.ndim, im.shape)
         salida = model.predict(im)[0]
         os.remove(tmp_file_path)
