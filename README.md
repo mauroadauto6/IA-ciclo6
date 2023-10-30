@@ -6,9 +6,9 @@ Github para la entrega de la PC2 - ciclo VI
 * David Joaquín Niño Suárez
 * Andy Johan Muñico Soto
 # APP
+* Agregar una carpeta vacía llamada 'clasificacion' en el directorio de 'shapes' y 'wspace'
 * Para iniciar la web GUI, correr 'sort.py'
 > Se podrá desplegar cuando existan recursos económicos para costearlo 😢
-* Agregar una carpeta vacía llamada 'clasificacion' en el directorio de 'shapes' y 'wspace'
 
 # OJO: 
 * 'test.py' se utilizó para realizar pruebas de distintas funcionalidades
