@@ -4,3 +4,4 @@ Github para la entrega de la PC2 - ciclo VI
 * Mauro Imanol Obermeyer Adauto Angulo
 * Jair Stephano Rodriguez Calla
 * David Joaquín Niño Suárez
+* Andy Johan Muñico Soto
