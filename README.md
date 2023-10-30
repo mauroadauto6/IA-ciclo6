@@ -6,8 +6,8 @@ Github para la entrega de la PC2 - ciclo VI
 * David Joaquín Niño Suárez
 * Andy Johan Muñico Soto
 # APP
-Para iniciar la web GUI, correr 'sort.py'
-Se podrá desplegar cuando existan recursos económicos para costearlo 😢
+* Para iniciar la web GUI, correr 'sort.py'
+* Se podrá desplegar cuando existan recursos económicos para costearlo 😢
 
 # OJO: 
 * 'test.py' se utilizó para realizar pruebas de distintas funcionalidades
