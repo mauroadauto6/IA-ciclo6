@@ -10,7 +10,7 @@ from gtts import gTTS
 
 # carga del modelo entrenado con 0.89 de precisión
 # https://colab.research.google.com/drive/1pgyV8zmYZh1LzwoJMDwQN4zNQCNLw9-A?usp=sharing
-model = tf.keras.models.load_model('D:/documents/UPC/Ciclo VI/Inteligencia Artificial/PC2/wspace/figurIA.h5')
+model = tf.keras.models.load_model('figurIA.h5')
 app = Flask(__name__, template_folder="templates/")
 
 @app.route("/")
